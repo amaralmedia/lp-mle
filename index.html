@@ -120,8 +120,48 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            text-align: center;
-            padding: 40px 0;
+            text-align: left;
+            padding: 60px 0;
+            overflow-x: hidden;
+        }
+
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .btn-desktop {
+            display: none;
+        }
+
+        @media (min-width: 992px) {
+            .hero-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .hero-content {
+                flex: 0 0 55%;
+                padding-right: 20px;
+            }
+
+            .hero-visual {
+                flex: 0 0 45%;
+                display: flex;
+                justify-content: center;
+                position: relative;
+            }
+            
+            .btn-desktop {
+                display: inline-block;
+            }
+            
+            .btn-mobile {
+                display: none;
+            }
         }
 
         .hero h4 {
@@ -130,14 +170,15 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .hero h1 {
-            font-size: 32px;
-            line-height: 1.2;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
             color: var(--text-dark);
-            margin-bottom: 10px;
-            font-weight: 700;
+            margin-bottom: 20px;
+            font-weight: 800;
         }
 
         .hero h1 span {
@@ -145,12 +186,10 @@
         }
 
         .hero p {
-            font-size: 16px;
+            font-size: 18px;
             color: var(--text-gray);
             margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 100%;
         }
 
         .video-placeholder {
@@ -191,6 +230,104 @@
             color: white;
             font-size: 24px;
             margin-left: 4px;
+        }
+
+        /* Hero Collage */
+        .hero-collage {
+            position: relative;
+            min-height: 550px;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        .hero-collage img {
+            position: absolute;
+            width: 58%;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border: 8px solid #ffffff;
+            border-radius: 4px;
+        }
+
+        .img-antes {
+            top: 0;
+            left: 0;
+            transform: rotate(-5deg);
+            z-index: 1;
+        }
+
+        .img-depois {
+            bottom: 0;
+            right: 0;
+            transform: rotate(5deg);
+            z-index: 3;
+        }
+
+        .text-label-antes, .text-label-depois {
+            position: absolute;
+            font-family: 'Poppins', sans-serif;
+            color: #888888;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .text-label-antes {
+            top: 75%;
+            left: 5%;
+            transform: rotate(-5deg);
+            z-index: 10;
+        }
+
+        .text-label-depois {
+            bottom: 68%;
+            right: 5%;
+            top: auto;
+            transform: rotate(5deg);
+            z-index: 10;
+        }
+
+        /* VSL Section */
+        #vsl-section {
+            background-color: #ffffff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .scannable-summary {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            text-align: left;
+        }
+
+        .scannable-summary h3 {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .scannable-summary ul {
+            list-style: none;
+        }
+
+        .scannable-summary li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--text-gray);
+        }
+
+        .scannable-summary .check-icon {
+            color: var(--primary-green);
+            font-weight: bold;
+            flex-shrink: 0;
         }
 
         /* --- BIO SECTION --- */
@@ -562,18 +699,97 @@
             margin-top: 40px;
         }
 
+        .sticky-footer {
+            display: none;
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .bio-grid, .modules-grid, .bonus-grid, .gallery-grid, .stories-grid {
                 grid-template-columns: 1fr;
             }
             
+            .hero {
+                padding: 25px 0;
+            }
+            
             .hero h1 {
                 font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .hero p {
+                margin-bottom: 15px;
             }
             
             .offer-header {
                 display: none; /* Hide header on mobile as per standard practice or adjust */
+            }
+
+            .sticky-footer {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 15px;
+                box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+                z-index: 9999;
+                transform: translateY(100%);
+                transition: transform 0.3s ease-in-out;
+                justify-content: center;
+            }
+
+            .sticky-footer.visible {
+                transform: translateY(0);
+            }
+
+            .sticky-footer .btn-cta {
+                width: 100%;
+                font-size: 16px;
+                padding: 12px;
+                margin: 0;
+            }
+            
+            .hero-visual {
+                width: 100%;
+            }
+
+            /* Hero Collage Mobile Fix */
+            .hero-collage {
+                min-height: 350px;
+                overflow: visible;
+            }
+
+            .hero-collage img {
+                width: 55%;
+                left: auto;
+            }
+
+            .img-antes {
+                top: 20px;
+                left: 0;
+                transform: rotate(-5deg);
+            }
+
+            .img-depois {
+                top: 60px;
+                right: 0;
+                bottom: auto;
+                transform: rotate(5deg);
+            }
+
+            .text-label-antes {
+                top: auto;
+                bottom: 10px;
+                left: 5%;
+            }
+
+            .text-label-depois {
+                bottom: auto;
+                top: 10px;
+                right: 5%;
             }
         }
     </style>
@@ -585,10 +801,28 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h4>MÉTODO USADO POR MILHARES DE BRASILEIROS</h4>
+                <h1>Aprenda a mobiliar e decorar sua casa gastando menos de <span style="color: #006847;">10 Mil!</span></h1>
+                <p>Decore o lar dos seus sonhos, <b> gastando pouco, mesmo sem ter experiência </b>.</p>
+                <a href="#offer" class="btn-cta btn-desktop">LIBERAR ACESSO POR MENOS DE R$20</a>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-collage">
+                    <span class="text-label-antes">ANTES</span>
+                    <img src="images/design-mode/antes.png" alt="Ambiente Antes" class="img-antes">
+                    <img src="images/design-mode/depois.png" alt="Ambiente Depois" class="img-depois">
+                    <span class="text-label-depois">DEPOIS</span>
+                </div>
+            </div>
+            <a href="#offer" class="btn-cta btn-mobile">LIBERAR ACESSO POR MENOS DE R$20</a>
+        </div>
+    </header>
+
+    <section id="vsl-section">
         <div class="container">
-            <h4>MÉTODO USADO POR MILHARES DE BRASILEIROS</h4>
-            <h1>Revelado o segredo<br>para mobiliar e decorar<br>seu Primeiro Imóvel<br>com menos de <span style="color: #006847;">10 Mil!</span></h1>
-            <p>Descubra o passo a passo validado para ter o lar dos sonhos, gastando pouco e sem precisar de arquiteto.</p>
+            <h3 style="text-align:center; margin-bottom: 20px; font-size: 20px; color: var(--text-gray);">Assista como funciona o método:</h3>
             
             <div style="max-width: 700px; margin: 0 auto 30px;">
                 <div id="vidalytics_embed_nFKYfh77jFhwGYkz" style="width: 100%; position:relative; padding-top: 56.66%;"></div>
@@ -605,29 +839,26 @@
                 </script>
             </div>
 
-            <a href="#offer" class="btn-cta">QUERO CONHECER O PROGRAMA</a>
-        </div>
-    </header>
+            <div class="scannable-summary">
+                <h3>O que você vai dominar em minutos:</h3>
+                <ul>
+                    <li><span class="check-icon">✓</span> <span><strong>Fim do "Comprei e não combinou":</strong> A regra simples para harmonizar sua casa sem gastar 1 real a mais.</span></li>
+                    <li><span class="check-icon">✓</span> <span><strong>A Lista de Ouro:</strong> Onde encontrar móveis de design alto padrão com preços de fábrica (até 60% de economia).</span></li>
+                    <li><span class="check-icon">✓</span> <span><strong>Sem Reformas Caras:</strong> Truques visuais para transformar imóveis alugados ou antigos sem quebra-quebra.</span></li>
+                    <li><span class="check-icon">✓</span> <span><strong>Orçamento Blindado:</strong> Como fazer seus R$ 10 mil renderem como se fossem R$ 30 mil.</span></li>
+                </ul>
+                <p style="text-align: center; font-size: 16px; color: var(--text-gray); margin-top: 15px;">Leve tudo isso custando <strong style="color: var(--red-offer);">menos do que um hambúrguer.</strong></p>
+            </div>
 
-    <section class="bio-section">
-        <div class="container">
-            <div class="bio-grid">
-                <div class="bio-img">
-                    <img src="images/design-mode/FSk4tUV.png" alt="Especialista" style="border-radius: 15px;">
-                </div>
-                <div class="bio-text">
-                    <h2>Eu já estive <br>no seu lugar...</h2>
-                    <p>Com um orçamento já apertado pelas contas de casa, toda decisão parece impossível de tomar. A insegurança de desperdiçar dinheiro com uma escolha errada é completamente normal.</p>
-                    <p>Mas e se existisse um mapa? Um plano claro, criado para te dar a confiança de um profissional e a segurança de que cada centavo do seu orçamento será investido da forma mais inteligente possível?</p>
-                    <p>Por esse mapa não existir que eu mesma o criei e batizei de <strong> <span style="color: #006847;">Programa MEU LAR ECONÔMICO</span></strong>. O seu guia rápido e definitivo para transformar uma casa sem vida no lar que você merece, sem estresse, sem achismos e, o mais importante, sem estourar seu orçamento.</p>
-                </div>
+            <div style="text-align: center;">
+                <a href="#offer" class="btn-cta">LIBERAR MEU ACESSO IMEDIATO</a>
             </div>
         </div>
     </section>
 
     <section class="modules-section">
         <div class="container">
-            <h2>Veja tudo o que você vai receber<br>no <strong>MEU LAR ECONÔMICO</strong></h2>
+            <h2>Veja tudo o que você vai receber</h2>
             
             <div class="modules-grid">
                 <div class="module-card">
@@ -675,6 +906,9 @@
                     </div>
                 </div>
             </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#offer" class="btn-cta">Liberar meu acesso</a>
+            </div>
         </div>
     </section>
 
@@ -690,7 +924,7 @@
                     <div class="bonus-text">
                         <span class="bonus-tag">BÔNUS #1</span>
                         <h4>Painel de Ofertas Exclusivo</h4>
-                        <p>VALOR: R$ 49,90</p>
+                        <p style="text-decoration: line-through;"> VALOR: R$ 49,90</p>
                         <span style="font-size: 11px; color: #666;">Curadoria semanal das melhores ofertas de móveis e decoração da internet, com economia de até 60% em relação às lojas locais.</span>
                     </div>
                 </div>
@@ -702,10 +936,13 @@
                     <div class="bonus-text">
                         <span class="bonus-tag">BÔNUS #2</span>
                         <h4>Planilha de Finanças do Lar</h4>
-                        <p>VALOR: R$ 19,90</p>
+                        <p style="text-decoration: line-through;">VALOR: R$ 19,90</p>
                         <span style="font-size: 11px; color: #666;">Controle cada centavo da sua decoração.</span>
                     </div>
                 </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#offer" class="btn-cta">Quero garantir a oferta</a>
             </div>
         </div>
     </section>
@@ -784,7 +1021,7 @@
 
     <section class="testimonials-section">
         <div class="container">
-            <h2>O que nossos alunos dizem</h2>
+            <h2>Faça como elas:</h2>
             <div class="stories-grid">
                 <div class="story-card">
                     <iframe 
@@ -862,6 +1099,10 @@
         </div>
     </footer>
 
+    <div id="sticky-footer" class="sticky-footer">
+        <a href="https://pay.meulareconomico.digital/checkout/v2/aBkzIAQCjLnlces8iu2F" class="btn-cta">Quero meu acesso por R$ 19,90</a>
+    </div>
+
     <script>
         const data = new Date();
         document.getElementById('data-hoje').innerText = `(${data.toLocaleDateString('pt-BR')})`;
@@ -874,6 +1115,18 @@
                 item.querySelector('span').innerText = answer.style.display === 'block' ? '-' : '+';
             });
         });
+
+        // Sticky Footer Logic
+        const stickyFooter = document.getElementById('sticky-footer');
+        function toggleStickyFooter() {
+            if (window.scrollY > 600) {
+                stickyFooter.classList.add('visible');
+            } else {
+                stickyFooter.classList.remove('visible');
+            }
+        }
+        window.addEventListener('scroll', toggleStickyFooter);
+        toggleStickyFooter();
     </script>
 
 </body>
