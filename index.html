@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Lar Econômico</title>
+    <title>Kit Meu Lar Econômico</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,469 +51,475 @@
         defer
     ></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary-green: #006847; /* Verde escuro dos botões/títulos */
-            --accent-green: #009966; /* Verde mais claro de detalhes */
-            --bg-body: #F0F9F7; /* Fundo menta bem claro */
-            --bg-bonus: #E3F2EF; /* Fundo da seção de bônus */
-            --text-dark: #1C1C1C;
-            --text-gray: #4A4A4A;
-            --white: #FFFFFF;
-            --red-offer: #D91A1A; /* Vermelho do preço riscado */
+            --primary: #1a6b4a;
+            --primary-dark: #0d4a30;
+            --primary-light: #e8f5ee;
+            --accent: #f59e0b;
+            --accent-dark: #d97706;
+            --red: #dc2626;
+            --bg: #f8faf9;
+            --bg-warm: #fefdfb;
+            --text: #1a1a1a;
+            --text-mid: #444;
+            --text-light: #666;
+            --white: #fff;
+            --border: #e5e7eb;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-dark);
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* --- BUTTONS --- */
-        .btn-cta {
-            background-color: var(--primary-green);
-            color: white;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-weight: 700;
-            font-size: 18px;
-            text-transform: uppercase;
-            display: inline-block;
-            transition: transform 0.2s;
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .btn-cta:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            text-align: left;
-            padding: 60px 0;
-            overflow-x: hidden;
-        }
-
-        .hero-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         
-        .btn-desktop {
-            display: none;
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
         }
 
-        @media (min-width: 992px) {
-            .hero-container {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-            
-            .hero-content {
-                flex: 0 0 55%;
-                padding-right: 20px;
-            }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        img { max-width: 100%; display: block; }
 
-            .hero-visual {
-                flex: 0 0 45%;
-                display: flex;
-                justify-content: center;
-                position: relative;
-            }
-            
-            .btn-desktop {
-                display: inline-block;
-            }
-            
-            .btn-mobile {
-                display: none;
-            }
-        }
-
-        .hero h4 {
-            color: var(--accent-green);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            line-height: 1.1;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-
-        .hero h1 span {
-            color: var(--primary-green);
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: var(--text-gray);
-            margin-bottom: 30px;
-            max-width: 100%;
-        }
-
-        .video-placeholder {
-            width: 100%;
-            max-width: 700px;
-            aspect-ratio: 16/9;
-            background-color: #000;
-            margin: 0 auto 30px;
-            border-radius: 8px;
-            display: flex;
+        /* ========== CTA BUTTON ========== */
+        .btn-cta {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 17px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 100%;
+            max-width: 440px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(26,107,74,0.3);
             position: relative;
             overflow: hidden;
         }
 
-        .video-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
+        .btn-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(26,107,74,0.4);
+            background: var(--primary-dark);
         }
 
-        .play-btn {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid white;
+        .btn-cta::after {
+            content: '→';
+            font-size: 20px;
+            transition: transform 0.2s;
         }
-        
-        .play-btn::after {
-            content: '▶';
+
+        .btn-cta:hover::after {
+            transform: translateX(3px);
+        }
+
+        .btn-sub {
+            display: block;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+
+        /* ========== URGENCY BAR ========== */
+        .urgency-bar {
+            background: var(--primary-dark);
             color: white;
-            font-size: 24px;
-            margin-left: 4px;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
-        /* Hero Collage */
+        .urgency-bar span {
+            color: var(--accent);
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: var(--white);
+            padding: 40px 0 50px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(28px, 6vw, 44px);
+            line-height: 1.15;
+            color: var(--text);
+            margin-bottom: 16px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 strong {
+            color: var(--primary);
+        }
+
+        .hero-sub {
+            font-size: 17px;
+            color: var(--text-mid);
+            margin-bottom: 8px;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-micro {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 28px;
+        }
+
         .hero-collage {
             position: relative;
-            min-height: 550px;
-            width: 100%;
-            padding: 20px 0;
+            max-width: 500px;
+            margin: 0 auto 32px;
+            min-height: 300px;
         }
 
         .hero-collage img {
             position: absolute;
-            width: 58%;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            border: 8px solid #ffffff;
-            border-radius: 4px;
+            width: 55%;
+            box-shadow: var(--shadow-lg);
+            border: 6px solid var(--white);
+            border-radius: 6px;
         }
 
         .img-antes {
             top: 0;
-            left: 0;
-            transform: rotate(-5deg);
+            left: 5%;
+            transform: rotate(-4deg);
             z-index: 1;
         }
 
         .img-depois {
             bottom: 0;
-            right: 0;
-            transform: rotate(5deg);
-            z-index: 3;
+            right: 5%;
+            transform: rotate(4deg);
+            z-index: 2;
         }
 
-        .text-label-antes, .text-label-depois {
+        .label-antes, .label-depois {
             position: absolute;
-            font-family: 'Poppins', sans-serif;
-            color: #888888;
-            font-weight: 600;
-            font-size: 14px;
+            font-size: 11px;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-        }
-
-        .text-label-antes {
-            top: 75%;
-            left: 5%;
-            transform: rotate(-5deg);
             z-index: 10;
+            padding: 3px 10px;
+            border-radius: 4px;
         }
 
-        .text-label-depois {
-            bottom: 68%;
-            right: 5%;
-            top: auto;
-            transform: rotate(5deg);
-            z-index: 10;
+        .label-antes {
+            top: 72%;
+            left: 6%;
+            transform: rotate(-4deg);
+            background: rgba(220,38,38,0.9);
+            color: white;
         }
 
-        /* VSL Section */
-        #vsl-section {
-            background-color: #ffffff;
-            padding: 50px 0;
+        .label-depois {
+            bottom: 66%;
+            right: 6%;
+            transform: rotate(4deg);
+            background: rgba(26,107,74,0.9);
+            color: white;
+        }
+
+        /* ========== PAIN POINTS ========== */
+        .pain-section {
+            padding: 48px 0;
+            background: var(--bg-warm);
+        }
+
+        .pain-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(22px, 4vw, 30px);
             text-align: center;
+            margin-bottom: 28px;
+            line-height: 1.25;
         }
 
-        .scannable-summary {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            max-width: 700px;
-            margin: 0 auto 30px;
-            text-align: left;
-        }
-
-        .scannable-summary h3 {
-            text-align: center;
-            color: var(--text-dark);
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-
-        .scannable-summary ul {
+        .pain-list {
+            max-width: 560px;
+            margin: 0 auto;
             list-style: none;
         }
 
-        .scannable-summary li {
-            margin-bottom: 10px;
-            font-size: 14px;
+        .pain-list li {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
-            color: var(--text-gray);
-        }
-
-        .scannable-summary .check-icon {
-            color: var(--primary-green);
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        /* --- BIO SECTION --- */
-        .bio-section {
-            padding: 50px 0;
-        }
-
-        .bio-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .bio-text h2 {
-            font-size: 28px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .bio-text p {
+            gap: 12px;
+            padding: 12px 0;
             font-size: 15px;
-            margin-bottom: 15px;
-            color: var(--text-gray);
+            color: var(--text-mid);
+            border-bottom: 1px solid var(--border);
         }
 
-        /* --- MODULES SECTION --- */
-        .modules-section {
-            padding: 50px 0;
+        .pain-list li:last-child { border-bottom: none; }
+
+        .pain-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: #fef2f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .pain-bridge {
             text-align: center;
+            margin-top: 28px;
+            padding: 20px;
+            background: var(--primary-light);
+            border-radius: 8px;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .modules-section h2 {
-            font-size: 24px;
-            margin-bottom: 40px;
-            color: var(--text-dark);
+        .pain-bridge p {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-dark);
         }
 
-        .modules-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+        /* ========== KIT (replaces modules) ========== */
+        .kit-section {
+            padding: 48px 0;
+            background: var(--bg);
         }
 
-        .module-card {
+        .kit-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(22px, 4vw, 30px);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .kit-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 32px;
+        }
+
+        .kit-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .kit-card {
             background: var(--white);
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: left;
-            padding-bottom: 20px;
+            padding: 20px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: box-shadow 0.2s;
         }
 
-        .module-card img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            object-position: top;
+        .kit-card:hover {
+            box-shadow: var(--shadow-md);
         }
 
-        .module-content {
-            padding: 20px;
+        .kit-number {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 15px;
         }
 
-        .module-content h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .module-content ul {
-            list-style: none;
-            font-size: 13px;
-            color: var(--text-gray);
-        }
-
-        .module-content ul li {
-            margin-bottom: 5px;
-            padding-left: 15px;
-            position: relative;
-        }
-
-        .module-content ul li::before {
-            content: '•';
-            color: var(--primary-green);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* --- BONUSES SECTION --- */
-        .bonus-section {
-            background-color: var(--bg-bonus);
-            padding: 60px 0;
-            margin: 40px 0;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .bonus-title {
-            color: var(--primary-green);
+        .kit-card h4 {
+            font-size: 15px;
             font-weight: 700;
-            margin-bottom: 30px;
-            font-size: 20px;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+
+        .kit-card p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .kit-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .kit-tag.new {
+            background: var(--red);
+        }
+
+        /* ========== BONUS ========== */
+        .bonus-section {
+            padding: 48px 0;
+            background: var(--primary-light);
+        }
+
+        .bonus-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(20px, 4vw, 26px);
+            text-align: center;
+            margin-bottom: 24px;
         }
 
         .bonus-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .bonus-card {
             background: var(--white);
-            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 16px 20px;
             display: flex;
             align-items: center;
-            gap: 15px;
-            text-align: left;
+            gap: 14px;
+            box-shadow: var(--shadow-sm);
+            border: 2px dashed var(--primary);
         }
 
-        .bonus-tag {
-            background: var(--accent-green);
-            color: white;
-            padding: 2px 10px;
-            font-size: 10px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 5px;
-        }
-
-        .bonus-img {
-            width: 80px;
-            height: 80px;
-            background: #eee;
-            border-radius: 5px;
+        .bonus-card-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 8px;
+            overflow: hidden;
             flex-shrink: 0;
+            background: #eee;
         }
 
-        .bonus-text h4 {
+        .bonus-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bonus-card h4 {
             font-size: 14px;
-            margin-bottom: 5px;
+            font-weight: 700;
+            margin-bottom: 2px;
         }
 
-        .bonus-text p {
+        .bonus-card .bonus-val {
             font-size: 12px;
-            color: var(--red-offer);
-            font-weight: bold;
+            color: var(--red);
+            font-weight: 600;
+            text-decoration: line-through;
         }
 
-        /* --- GALLERY SECTION --- */
+        .bonus-card .bonus-desc {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* ========== GALLERY ========== */
         .gallery-section {
             padding: 40px 0;
             text-align: center;
             overflow: hidden;
+            background: var(--white);
         }
-        
+
+        .gallery-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(20px, 4vw, 26px);
+            margin-bottom: 8px;
+        }
+
+        .gallery-section .gallery-sub {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
         .gallery-carousel-wrapper {
             position: relative;
-            margin-top: 30px;
             width: 100%;
             overflow: hidden;
         }
 
         .gallery-track {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             width: max-content;
-            animation: scrollGallery 30s linear infinite;
-        }
-        
-        .gallery-track:hover {
-            animation-play-state: paused;
+            animation: scrollGallery 35s linear infinite;
         }
 
+        .gallery-track:hover { animation-play-state: paused; }
+
         .gallery-item {
-            width: 220px;
+            width: 180px;
             aspect-ratio: 9/16;
-            background: #ddd;
             border-radius: 10px;
             overflow: hidden;
             flex-shrink: 0;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         @keyframes scrollGallery {
@@ -523,208 +529,343 @@
 
         .gallery-blur-left, .gallery-blur-right {
             position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100px;
+            top: 0; bottom: 0;
+            width: 60px;
             z-index: 2;
             pointer-events: none;
         }
-        
+
         .gallery-blur-left {
             left: 0;
-            background: linear-gradient(to right, var(--bg-body), transparent);
+            background: linear-gradient(to right, var(--white), transparent);
         }
 
         .gallery-blur-right {
             right: 0;
-            background: linear-gradient(to left, var(--bg-body), transparent);
+            background: linear-gradient(to left, var(--white), transparent);
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        /* ========== OFFER BOX ========== */
+        #offer { padding: 48px 0; background: var(--bg); }
 
-        /* --- OFFER BOX SECTION --- */
-        .offer-container {
-            max-width: 500px;
-            margin: 60px auto;
-            border: 2px solid var(--primary-green);
-            border-radius: 15px;
+        .offer-box {
+            max-width: 480px;
+            margin: 0 auto;
             background: var(--white);
-            padding: 0 0 30px 0;
-            text-align: center;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--primary);
         }
 
-        .offer-header {
-            background: #000;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+        .offer-box-header {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        
-        .offer-header div {
-            width: 30px; height: 30px; background: #333; border-radius: 50%;
+
+        .offer-box-body {
+            padding: 28px 24px;
+            text-align: center;
         }
 
         .offer-mockup {
-            padding: 20px;
-        }
-        
-        .offer-list {
-            text-align: left;
-            padding: 0 30px;
             margin-bottom: 20px;
         }
 
-        .offer-list li {
+        .offer-list {
+            text-align: left;
             list-style: none;
-            margin-bottom: 10px;
-            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .offer-list li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 10px;
-        }
-        
-        .check-icon {
-            color: var(--accent-green);
-            font-weight: bold;
+            padding: 6px 0;
+            font-size: 13px;
+            color: var(--text-mid);
         }
 
-        .price-section {
-            margin: 20px 0;
+        .offer-list .check {
+            color: var(--primary);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
         }
-        
-        .price-old {
+
+        .offer-list .strike {
+            color: #aaa;
             text-decoration: line-through;
-            color: #999;
-            font-size: 14px;
         }
 
-        .price-new {
-            color: var(--primary-green);
-            font-size: 36px;
+        .price-block {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fafff8;
+            border-radius: 10px;
+            border: 1px solid #e0f0da;
+        }
+
+        .price-from {
+            font-size: 15px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .price-label {
+            color: var(--red);
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin: 4px 0;
+        }
+
+        .price-main {
+            font-size: 42px;
             font-weight: 800;
+            color: var(--primary);
             line-height: 1;
         }
-        
-        .payment-info {
-            font-size: 12px;
-            color: #666;
-            margin-top: 10px;
+
+        .price-main small {
+            font-size: 22px;
         }
 
-        /* --- TESTIMONIALS (Stories style) --- */
-        .testimonials-section {
-            padding: 50px 0;
-            text-align: center;
+        .price-installment {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 4px;
         }
-        
+
+        .payment-flags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 16px;
+            align-items: center;
+        }
+
+        .payment-flags img { height: 22px; width: auto; }
+
+        .offer-secure {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 12px;
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials-section {
+            padding: 48px 0;
+            text-align: center;
+            background: var(--bg-warm);
+        }
+
+        .testimonials-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(20px, 4vw, 26px);
+            margin-bottom: 24px;
+        }
+
         .stories-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin-top: 30px;
+            gap: 12px;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        
+
         .story-card {
             aspect-ratio: 9/16;
             background: #000;
             border-radius: 10px;
             overflow: hidden;
-            position: relative;
-        }
-        
-        .story-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
         }
 
-        /* --- GUARANTEE --- */
+        .story-card iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ========== GUARANTEE ========== */
         .guarantee-section {
-            background: var(--white);
-            padding: 30px;
-            margin: 40px auto;
-            max-width: 800px;
-            border-radius: 10px;
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 40px 20px;
             text-align: center;
+        }
+
+        .guarantee-box {
+            background: var(--white);
+            border: 2px solid #d1fae5;
+            border-radius: 12px;
+            padding: 28px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .guarantee-icon {
-            font-size: 40px;
-            color: var(--accent-green);
+        .guarantee-box .g-icon { font-size: 36px; }
+
+        .guarantee-box h3 {
+            font-size: 17px;
+            color: var(--primary-dark);
         }
 
-        /* --- FAQ --- */
+        .guarantee-box p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ========== FAQ ========== */
         .faq-section {
             padding: 40px 0;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
         }
-        
-        .faq-item {
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
+
+        .faq-section h2 {
+            font-family: 'DM Serif Display', serif;
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 24px;
         }
-        
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+        }
+
         .faq-question {
             font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-question span {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--primary);
+            transition: transform 0.2s;
         }
 
         .faq-answer {
             display: none;
             margin-top: 10px;
-            font-size: 14px;
-            color: var(--text-gray);
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
         }
 
-        /* --- FOOTER --- */
+        /* ========== FOOTER ========== */
         .footer-cta {
-            background: #EAF7F4;
-            padding: 40px 0;
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            margin-top: 40px;
         }
 
+        .footer-cta h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .footer-cta p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+
+        .footer-cta .btn-cta {
+            background: var(--accent);
+            color: var(--text);
+            box-shadow: 0 4px 12px rgba(245,158,11,0.4);
+        }
+
+        .footer-cta .btn-cta:hover {
+            background: var(--accent-dark);
+        }
+
+        .footer-copy {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 20px;
+        }
+
+        /* ========== STICKY FOOTER ========== */
         .sticky-footer {
             display: none;
         }
 
-        /* --- RESPONSIVE --- */
+        /* ========== COUNTER ROW ========== */
+        .counter-row {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding: 24px 0;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .counter-item {
+            text-align: center;
+        }
+
+        .counter-item .num {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .counter-item .lbl {
+            font-size: 11px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
-            .bio-grid, .modules-grid, .bonus-grid, .gallery-grid, .stories-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero {
-                padding: 25px 0;
-            }
-            
-            .hero h1 {
-                font-size: 24px;
-                margin-bottom: 10px;
+            .stories-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
             }
 
-            .hero p {
-                margin-bottom: 15px;
+            .hero { padding: 28px 0 40px; }
+
+            .hero-collage {
+                min-height: 260px;
+                max-width: 340px;
             }
-            
-            .offer-header {
-                display: none; /* Hide header on mobile as per standard practice or adjust */
-            }
+
+            .counter-row { gap: 20px; }
+            .counter-item .num { font-size: 22px; }
+
+            .kit-card { padding: 16px; }
+
+            .offer-box-body { padding: 20px 16px; }
 
             .sticky-footer {
                 display: flex;
@@ -733,8 +874,8 @@
                 left: 0;
                 width: 100%;
                 background: var(--white);
-                padding: 15px;
-                box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+                padding: 12px 16px;
+                box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
                 z-index: 9999;
                 transform: translateY(100%);
                 transition: transform 0.3s ease-in-out;
@@ -747,50 +888,17 @@
 
             .sticky-footer .btn-cta {
                 width: 100%;
-                font-size: 16px;
-                padding: 12px;
-                margin: 0;
-            }
-            
-            .hero-visual {
-                width: 100%;
+                font-size: 15px;
+                padding: 14px;
+                max-width: 100%;
             }
 
-            /* Hero Collage Mobile Fix */
-            .hero-collage {
-                min-height: 350px;
-                overflow: visible;
-            }
+            .footer-cta { padding-bottom: 90px; }
+        }
 
-            .hero-collage img {
-                width: 55%;
-                left: auto;
-            }
-
-            .img-antes {
-                top: 20px;
-                left: 0;
-                transform: rotate(-5deg);
-            }
-
-            .img-depois {
-                top: 60px;
-                right: 0;
-                bottom: auto;
-                transform: rotate(5deg);
-            }
-
-            .text-label-antes {
-                top: auto;
-                bottom: 10px;
-                left: 5%;
-            }
-
-            .text-label-depois {
-                bottom: auto;
-                top: 10px;
-                right: 5%;
-            }
+        @media (max-width: 380px) {
+            .hero h1 { font-size: 24px; }
+            .price-main { font-size: 36px; }
         }
     </style>
 </head>
@@ -798,233 +906,233 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVKZ7HLH"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
+    <!-- ========== URGENCY BAR ========== -->
+    <div class="urgency-bar">
+        ⚡ Preço de lançamento: <span>R$19,90</span> — volta para R$39,90 em breve
+    </div>
+
+    <!-- ========== HERO ========== -->
     <header class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h4>MÉTODO USADO POR MILHARES DE BRASILEIROS</h4>
-                <h1>Aprenda a mobiliar e decorar sua casa gastando menos de <span style="color: #006847;">10 Mil!</span></h1>
-                <p>Decore o lar dos seus sonhos, <b> gastando pouco, mesmo sem ter experiência </b>.</p>
-                <a href="#offer" class="btn-cta btn-desktop">LIBERAR ACESSO POR MENOS DE R$20</a>
+        <div class="container">
+            <div class="hero-badge">📦 Kit Digital Completo</div>
+            
+            <h1>Monte seu apê <strong>completo por menos de R$5.000</strong> — sem reforma e sem erro</h1>
+            
+            <p class="hero-sub">5 ferramentas prontas pra você copiar e aplicar hoje.<br>Sem precisar entender de decoração.</p>
+            <p class="hero-micro">Usado por +300 brasileiros que montaram o apê dos sonhos gastando pouco.</p>
+
+            <div class="hero-collage">
+                <span class="label-antes">Antes</span>
+                <img src="images/design-mode/antes.png" alt="Ambiente Antes" class="img-antes">
+                <img src="images/design-mode/depois.png" alt="Ambiente Depois" class="img-depois">
+                <span class="label-depois">Depois</span>
             </div>
-            <div class="hero-visual">
-                <div class="hero-collage">
-                    <span class="text-label-antes">ANTES</span>
-                    <img src="images/design-mode/antes.png" alt="Ambiente Antes" class="img-antes">
-                    <img src="images/design-mode/depois.png" alt="Ambiente Depois" class="img-depois">
-                    <span class="text-label-depois">DEPOIS</span>
-                </div>
+
+            <div style="text-align:center;">
+                <a href="#offer" class="btn-cta">Quero o Kit por R$19,90</a>
+                <span class="btn-sub">Acesso imediato · Garantia de 7 dias</span>
             </div>
-            <a href="#offer" class="btn-cta btn-mobile">LIBERAR ACESSO POR MENOS DE R$40</a>
         </div>
     </header>
 
-    <section id="vsl-section">
+    <!-- ========== PAIN POINTS ========== -->
+    <section class="pain-section">
         <div class="container">
-            <h3 style="text-align:center; margin-bottom: 20px; font-size: 20px; color: var(--text-gray);">Assista como funciona o método:</h3>
-            
-            <div style="max-width: 700px; margin: 0 auto 30px;">
-                <div id="vidalytics_embed_nFKYfh77jFhwGYkz" style="width: 100%; position:relative; padding-top: 56.66%;"></div>
-                <script type="text/javascript">
-                (function (v, i, d, a, l, y, t, c, s) {
-                    y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                    if (!vsl){vsl=function(u,cb){
-                        if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                        if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                        i.getElementsByTagName("head")[0].appendChild(s);
-                    };}
-                    vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                })(window, document, 'Vidalytics', 'vidalytics_embed_nFKYfh77jFhwGYkz', 'https://fast.vidalytics.com/embeds/6PJLpDws/nFKYfh77jFhwGYkz/');
-                </script>
-            </div>
+            <h2>Você já passou por isso?</h2>
+            <ul class="pain-list">
+                <li>
+                    <span class="pain-icon">😩</span>
+                    <span>Comprou um móvel que parecia lindo na loja, mas ficou <strong>horrível no seu espaço</strong></span>
+                </li>
+                <li>
+                    <span class="pain-icon">💸</span>
+                    <span>Pesquisou preços por semanas e ainda assim sentiu que <strong>pagou caro demais</strong></span>
+                </li>
+                <li>
+                    <span class="pain-icon">😶</span>
+                    <span>Olha pro Pinterest, vê apês lindos e pensa: <strong>"isso nunca vai caber no meu orçamento"</strong></span>
+                </li>
+                <li>
+                    <span class="pain-icon">🏠</span>
+                    <span>Mora de aluguel e acha que <strong>não vale a pena investir</strong> em decoração</span>
+                </li>
+            </ul>
 
-            <div class="scannable-summary">
-                <h3>O que você vai dominar em minutos:</h3>
-                <ul>
-                    <li><span class="check-icon">✓</span> <span><strong>Fim do "Comprei e não combinou":</strong> A regra simples para harmonizar sua casa sem gastar 1 real a mais.</span></li>
-                    <li><span class="check-icon">✓</span> <span><strong>A Lista de Ouro:</strong> Onde encontrar móveis de design alto padrão com preços de fábrica (até 60% de economia).</span></li>
-                    <li><span class="check-icon">✓</span> <span><strong>Sem Reformas Caras:</strong> Truques visuais para transformar imóveis alugados ou antigos sem quebra-quebra.</span></li>
-                    <li><span class="check-icon">✓</span> <span><strong>Orçamento Blindado:</strong> Como fazer seus R$ 10 mil renderem como se fossem R$ 30 mil.</span></li>
-                </ul>
-                <p style="text-align: center; font-size: 16px; color: var(--text-gray); margin-top: 15px;">Leve tudo isso custando <strong style="color: var(--red-offer);">menos do que um hambúrguer.</strong></p>
-            </div>
-
-            <div style="text-align: center;">
-                <a href="#offer" class="btn-cta">LIBERAR MEU ACESSO IMEDIATO</a>
+            <div class="pain-bridge">
+                <p>O problema não é o seu orçamento. É não ter um plano.<br>O Kit resolve isso em minutos.</p>
             </div>
         </div>
     </section>
 
-    <section class="modules-section">
+    <!-- ========== KIT ITEMS ========== -->
+    <section class="kit-section">
         <div class="container">
-            <h2>Veja tudo o que você vai receber</h2>
-            
-            <div class="modules-grid">
-                <div class="module-card">
-                    <img src="images/design-mode/FiEbmhs.jpeg" alt="Módulo 1">
-                    <div class="module-content">
-                        <h3>O Plano Mestre do Apê Econômico</h3>
-                        <ul>
-                            <li>Traduza as inspirações para a sua realidade
-                            <li>Lista de prioridades de compras</li>
-                            <li>Medindo espaços como um profissional</li>
-                            <li>Escolha da paleta de cores</li>
-                        </ul>
+            <h2>O que vem no Kit</h2>
+            <p class="kit-subtitle">5 ferramentas práticas — é só abrir e aplicar</p>
+
+            <div class="kit-grid">
+                <div class="kit-card">
+                    <div class="kit-number">1</div>
+                    <div>
+                        <span class="kit-tag">Mais popular</span>
+                        <h4>Lista de +50 Lojas com Preço de Fábrica</h4>
+                        <p>Curadoria das melhores lojas online do Brasil com até 60% de economia. Inclui móveis, decoração e organização — a maioria entrega em todo o país.</p>
                     </div>
                 </div>
 
-                <div class="module-card">
-                    <img src="images/design-mode/8ldwhzm.jpeg" alt="Módulo 2">
-                    <div class="module-content">
-                        <h3>Descubra onde o seu Dinheiro desaparece</h3>
-                        <ul>
-                        <p>Aprenda a identificar as melhores oportunidades, garimpar peças com design incrível e alta durabilidade, mesmo com um orçamento baixo, e a fugir das armadilhas que fazem seu dinheiro "evaporar".</p>
-                        </ul>
+                <div class="kit-card">
+                    <div class="kit-number">2</div>
+                    <div>
+                        <h4>Planilha de Orçamento por Cômodo</h4>
+                        <p>Preencha os valores e saiba exatamente quanto vai gastar em cada ambiente. Sem surpresas. Sem estourar o orçamento.</p>
                     </div>
                 </div>
 
-                <div class="module-card">
-                    <img src="images/design-mode/fB2wQin.jpeg" alt="Módulo 3">
-                    <div class="module-content">
-                        <h3>Dando sua Personalidade ao seu Lar</h3>
-                        <ul>
-                            <li>Dando seu toque pessoal</li>
-                            <li>Decoração que conta uma história</li>
-                            <li>Fugindo do 'visual de clínica'</li>
-                            </ul>
+                <div class="kit-card">
+                    <div class="kit-number">3</div>
+                    <div>
+                        <h4>3 Estilos Prontos pra Copiar</h4>
+                        <p>Guia visual com combinações completas de cores, móveis e decoração que funcionam em apês econômicos. Escolha um e replique.</p>
                     </div>
                 </div>
 
-                <div class="module-card">
-                    <img src="images/design-mode/aTIj7xP.png" alt="Módulo 4">
-                    <div class="module-content">
-                        <h3>Harmonizando seu Lar: Onde a Mágica Acontece</h3>
-                        <ul>
-                        <p>O segredo dos decoradores profissionais. Acabe com a insegurança de "como combinar tudo". Descubra as técnicas para criar um visual perfeito entre os ambientes, fazendo com que seu lar pareça coeso, harmonioso e intencional.</p>
-                        </ul>
+                <div class="kit-card">
+                    <div class="kit-number">4</div>
+                    <div>
+                        <h4>Checklist Anti-Erro</h4>
+                        <p>O que comprar primeiro, o que nunca comprar, e o que pode esperar. A ordem certa economiza milhares de reais.</p>
+                    </div>
+                </div>
+
+                <div class="kit-card">
+                    <div class="kit-number">5</div>
+                    <div>
+                        <h4>Guia: Transforme Alugado em "Lar"</h4>
+                        <p>Técnicas visuais que mudam qualquer ambiente sem quebra-quebra. Tudo reversível — perfeito pra quem mora de aluguel.</p>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="#offer" class="btn-cta">Liberar meu acesso</a>
+
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="#offer" class="btn-cta">Quero o Kit Completo</a>
             </div>
         </div>
     </section>
 
+    <!-- ========== BONUS ========== -->
     <section class="bonus-section">
         <div class="container">
-            <p class="bonus-title">Ao garantir seu acesso hoje <span id="data-hoje"></span>, você também recebe + 02 Bônus Exclusivos</p>
-            
+            <h2>Bônus inclusos — só hoje <span id="data-hoje"></span></h2>
+
             <div class="bonus-grid">
                 <div class="bonus-card">
-                    <div class="bonus-img">
+                    <div class="bonus-card-img">
                         <img src="images/design-mode/y9xKtEN.png" alt="Bônus 1">
                     </div>
-                    <div class="bonus-text">
-                        <span class="bonus-tag">BÔNUS #1</span>
-                        <h4>Painel de Ofertas Exclusivo</h4>
-                        <p style="text-decoration: line-through;"> VALOR: R$ 49,90</p>
-                        <span style="font-size: 11px; color: #666;">Curadoria semanal das melhores ofertas de móveis e decoração da internet, com economia de até 60% em relação às lojas locais.</span>
+                    <div>
+                        <span class="kit-tag new">Bônus #1</span>
+                        <h4>Painel de Ofertas Semanal</h4>
+                        <span class="bonus-val">VALOR: R$49,90</span>
+                        <p class="bonus-desc">Curadoria semanal das melhores ofertas de móveis e decoração com até 60% de desconto. Atualizado toda semana.</p>
                     </div>
                 </div>
 
                 <div class="bonus-card">
-                    <div class="bonus-img">
+                    <div class="bonus-card-img">
                         <img src="images/design-mode/2dOIMIZ.png" alt="Bônus 2">
                     </div>
-                    <div class="bonus-text">
-                        <span class="bonus-tag">BÔNUS #2</span>
-                        <h4>Planilha de Finanças do Lar</h4>
-                        <p style="text-decoration: line-through;">VALOR: R$ 19,90</p>
-                        <span style="font-size: 11px; color: #666;">Controle cada centavo da sua decoração.</span>
+                    <div>
+                        <span class="kit-tag new">Bônus #2</span>
+                        <h4>Guia: 10 Móveis que Mais Desvalorizam</h4>
+                        <span class="bonus-val">VALOR: R$29,90</span>
+                        <p class="bonus-desc">Saiba quais compras são cilada e onde investir de verdade. Esse guia sozinho pode te poupar centenas de reais.</p>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="#offer" class="btn-cta">Quero garantir a oferta</a>
+
+            <div style="text-align: center; margin-top: 28px;">
+                <a href="#offer" class="btn-cta">Garantir o Kit + Bônus</a>
             </div>
         </div>
     </section>
 
+    <!-- ========== SOCIAL PROOF GALLERY ========== -->
     <section class="gallery-section">
         <div class="container">
-            <h2>São centenas de lares mobiliados<br>e dentro do orçamento</h2>
-            <div class="gallery-carousel-wrapper">
-                <div class="gallery-blur-left"></div>
-                <div class="gallery-track">
-                    <!-- Set 1 -->
-                    <div class="gallery-item"><img src="images/design-mode/XG2n8PH.png" alt="Lar 1"></div>
-                    <div class="gallery-item"><img src="images/design-mode/yNVKyCB.png" alt="Lar 2"></div>
-                    <div class="gallery-item"><img src="images/design-mode/RE2PcCl.png" alt="Lar 3"></div>
-                    <div class="gallery-item"><img src="images/design-mode/m1oNOmY.png" alt="Lar 4"></div>
-                    <div class="gallery-item"><img src="images/design-mode/LNuUIhU.png" alt="Lar 5"></div>
-                    <div class="gallery-item"><img src="images/design-mode/6MuUqWO.png" alt="Lar 6"></div>
-                    <!-- Set 2 (Clone) -->
-                    <div class="gallery-item"><img src="images/design-mode/XG2n8PH.png" alt="Lar 1"></div>
-                    <div class="gallery-item"><img src="images/design-mode/yNVKyCB.png" alt="Lar 2"></div>
-                    <div class="gallery-item"><img src="images/design-mode/RE2PcCl.png" alt="Lar 3"></div>
-                    <div class="gallery-item"><img src="images/design-mode/m1oNOmY.png" alt="Lar 4"></div>
-                    <div class="gallery-item"><img src="images/design-mode/LNuUIhU.png" alt="Lar 5"></div>
-                    <div class="gallery-item"><img src="images/design-mode/6MuUqWO.png" alt="Lar 6"></div>
-                </div>
-                <div class="gallery-blur-right"></div>
+            <h2>+300 apês montados com o Kit</h2>
+            <p class="gallery-sub">Resultados reais de quem seguiu o passo a passo</p>
+        </div>
+        <div class="gallery-carousel-wrapper">
+            <div class="gallery-blur-left"></div>
+            <div class="gallery-track">
+                <div class="gallery-item"><img src="images/design-mode/XG2n8PH.png" alt="Lar 1"></div>
+                <div class="gallery-item"><img src="images/design-mode/yNVKyCB.png" alt="Lar 2"></div>
+                <div class="gallery-item"><img src="images/design-mode/RE2PcCl.png" alt="Lar 3"></div>
+                <div class="gallery-item"><img src="images/design-mode/m1oNOmY.png" alt="Lar 4"></div>
+                <div class="gallery-item"><img src="images/design-mode/LNuUIhU.png" alt="Lar 5"></div>
+                <div class="gallery-item"><img src="images/design-mode/6MuUqWO.png" alt="Lar 6"></div>
+                <!-- Clone -->
+                <div class="gallery-item"><img src="images/design-mode/XG2n8PH.png" alt="Lar 1"></div>
+                <div class="gallery-item"><img src="images/design-mode/yNVKyCB.png" alt="Lar 2"></div>
+                <div class="gallery-item"><img src="images/design-mode/RE2PcCl.png" alt="Lar 3"></div>
+                <div class="gallery-item"><img src="images/design-mode/m1oNOmY.png" alt="Lar 4"></div>
+                <div class="gallery-item"><img src="images/design-mode/LNuUIhU.png" alt="Lar 5"></div>
+                <div class="gallery-item"><img src="images/design-mode/6MuUqWO.png" alt="Lar 6"></div>
             </div>
+            <div class="gallery-blur-right"></div>
         </div>
     </section>
 
+    <!-- ========== OFFER BOX ========== -->
     <section id="offer">
         <div class="container">
-            <div class="offer-container">
-                <div class="offer-header">
-                    <div style="background:white; width: 30px; height: 30px; border-radius: 50%;"></div>
-                    <div style="background:white; width: 30px; height: 30px; border-radius: 50%;"></div>
-                    <div style="background:white; width: 30px; height: 30px; border-radius: 50%;"></div>
+            <div class="offer-box">
+                <div class="offer-box-header">
+                    ⚡ Oferta de lançamento — por tempo limitado
                 </div>
-                
-                <div class="offer-mockup">
-                    <img src="images/design-mode/7zwkAbL.png" alt="Acesso em todos dispositivos" style="margin: 0 auto;">
-                </div>
+                <div class="offer-box-body">
+                    <div class="offer-mockup">
+                        <img src="images/design-mode/7zwkAbL.png" alt="Kit completo" style="margin: 0 auto; max-width: 280px;">
+                    </div>
 
-                <ul class="offer-list">
-                    <li><span class="check-icon">✓</span> Programa completo e objetivo, com guias fáceis e sem enrolação.</li>
-                    <li><span class="check-icon">✓</span> Economize milhares de reais ao investir nas compras certas.</li>
-                    <li><span class="check-icon">✓</span> Crie um ambiente com a sua personalidade, fuja do visual genérico.</li>
-                    <li><span class="check-icon">✓</span> Transforme aquela sua inspiração do Pinterest em um plano de ação executável.</li>
-                    <li><span class="check-icon">✓</span> Acesso imediato e vitalício, com atualizações incluídas</li>
-                    <li><span class="check-icon">✓</span> Área de membros exclusiva, estilo Aplicativo</li>                    <li style="color: #999; text-decoration: line-through;">☒ BÔNUS 1: R$ 49,90</li>
-                    <li style="color: #999; text-decoration: line-through;">☒ BÔNUS 2: R$ 19,90</li>
-                    <li style="color: #999; text-decoration: line-through;">☒ PROGRAMA: R$ 89,90</li>
-                </ul>
+                    <ul class="offer-list">
+                        <li><span class="check">✓</span> Lista de +50 lojas com preço de fábrica</li>
+                        <li><span class="check">✓</span> Planilha de orçamento por cômodo</li>
+                        <li><span class="check">✓</span> 3 estilos prontos pra copiar</li>
+                        <li><span class="check">✓</span> Checklist anti-erro de compras</li>
+                        <li><span class="check">✓</span> Guia pra transformar alugado em lar</li>
+                        <li><span class="check">✓</span> Acesso imediato e vitalício</li>
+                        <li><span class="strike">☒ BÔNUS: Painel de Ofertas — R$49,90</span></li>
+                        <li><span class="strike">☒ BÔNUS: Guia Anti-Desvalorização — R$29,90</span></li>
+                    </ul>
 
-                <div class="price-section">
-                    <p class="price-old" style="font-size: 18px;">R$ 159,90</p>
-                    <p style="color: var(--red-offer); font-weight: bold; font-size: 14px; margin-bottom: 5px;">HOJE POR APENAS</p>
-                    <p class="price-new">R$ 19,90</p>
-                    <p style="font-size: 14px; color: #666; margin: 5px 0;">à vista ou</p>
-                    <p class="price-new" style="font-size: 22px;">3x de R$7,61</p>
-                    <p style="font-size: 14px; color: #666; margin-top: 5px;">no cartão</p>
-                </div>
+                    <div class="price-block">
+                        <p class="price-from">R$159,90</p>
+                        <p class="price-label">Hoje por apenas</p>
+                        <p class="price-main"><small>R$</small>19<small>,90</small></p>
+                        <p class="price-installment">ou 3x de R$7,61 no cartão</p>
+                    </div>
 
-                <a href="https://pay.meulareconomico.digital/checkout/v2/aBkzIAQCjLnlces8iu2F" class="btn-cta" style="width: 90%;">GARANTIR ACESSO AGORA</a>
-                
-                <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px; align-items: center;">
-                    <img src="images/design-mode/visa-logo-0.png" alt="Visa" style="height: 25px; width: auto;">
-                    <img src="images/design-mode/Mastercard-Logo.wine.png" alt="Mastercard" style="height: 25px; width: auto;">
-                    <img src="images/design-mode/elo-logo-5.png" alt="Elo" style="height: 25px; width: auto;">
-                    <img src="images/design-mode/artpoin-logo-pix.png" alt="Pix" style="height: 25px; width: auto;">
-                </div>
+                    <a href="https://pay.meulareconomico.digital/checkout/v2/aBkzIAQCjLnlces8iu2F" class="btn-cta" style="max-width:100%;">Garantir meu Kit agora</a>
 
-                <div class="payment-info">
-                    Compra 100% Segura • Acesso Imediato
+                    <div class="payment-flags">
+                        <img src="images/design-mode/visa-logo-0.png" alt="Visa">
+                        <img src="images/design-mode/Mastercard-Logo.wine.png" alt="Mastercard">
+                        <img src="images/design-mode/elo-logo-5.png" alt="Elo">
+                        <img src="images/design-mode/artpoin-logo-pix.png" alt="Pix">
+                    </div>
+
+                    <p class="offer-secure">🔒 Compra 100% segura · Acesso imediato após pagamento</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========== TESTIMONIALS ========== -->
     <section class="testimonials-section">
         <div class="container">
-            <h2>Faça como elas:</h2>
+            <h2>Quem usou, aprovou:</h2>
             <div class="stories-grid">
                 <div class="story-card">
                     <iframe 
@@ -1032,8 +1140,7 @@
                         title="Depoimento 1" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen 
-                        loading="lazy" 
-                        style="width: 100%; height: 100%; border: none;">
+                        loading="lazy">
                     </iframe>
                 </div>
                 <div class="story-card">
@@ -1042,8 +1149,7 @@
                         title="Depoimento 2" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen 
-                        loading="lazy" 
-                        style="width: 100%; height: 100%; border: none;">
+                        loading="lazy">
                     </iframe>
                 </div>
                 <div class="story-card">
@@ -1052,83 +1158,99 @@
                         title="Depoimento 3" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen 
-                        loading="lazy" 
-                        style="width: 100%; height: 100%; border: none;">
+                        loading="lazy">
                     </iframe>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========== GUARANTEE ========== -->
     <section class="guarantee-section">
-        <div class="guarantee-icon">🛡️</div>
-        <h3>RISCO ZERO: Garantia Incondicional de 7 Dias</h3>
-        <p style="color: #666; font-size: 14px;">Eu tenho tanta confiança que o Programa Meu Lar Econômico vai te dar a clareza e a segurança que você precisa, que eu assumo todo o risco. Você tem 7 dias para acessar o conteúdo, e se por qualquer motivo achar que não é para você, basta enviar um e-mail e nós devolveremos 100% do seu investimento, sem perguntas. O risco é todo meu.</p>
+        <div class="guarantee-box">
+            <span class="g-icon">🛡️</span>
+            <h3>Garantia incondicional de 7 dias</h3>
+            <p>Se por qualquer motivo você achar que o Kit não valeu cada centavo, basta enviar um e-mail e devolvemos 100% do valor. Sem perguntas, sem burocracia. O risco é todo meu.</p>
+        </div>
     </section>
 
+    <!-- ========== FAQ ========== -->
     <section class="faq-section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 30px;">Perguntas Frequentes</h2>
-            
+            <h2>Perguntas frequentes</h2>
+
             <div class="faq-item">
-                <div class="faq-question">E se eu não tiver nenhum talento para decoração? <span>+</span></div>
-                <div class="faq-answer">Perfeito! Este não é um curso de arte, é um método passo a passo. Se você sabe seguir uma receita de bolo, você consegue aplicar o programa. Nós te damos o "como", você só precisa executar.</div>
+                <div class="faq-question">Não entendo nada de decoração. Funciona pra mim? <span>+</span></div>
+                <div class="faq-answer">Foi feito exatamente pra você. O Kit traz combinações prontas, listas de lojas e checklists — não precisa ter "bom gosto" nem experiência. É copiar e aplicar.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Consigo mesmo mobiliar um apê com R$10.000? <span>+</span></div>
-                <div class="faq-answer">Sim! O programa foi desenhado exatamente para essa realidade. Vamos te ensinar a priorizar gastos, a encontrar as melhores ofertas e a usar a criatividade para fazer seu dinheiro render ao máximo e atingir essa meta.</div>
+                <div class="faq-question">Dá mesmo pra mobiliar um apê com R$5.000? <span>+</span></div>
+                <div class="faq-answer">Sim. O Kit foi pensado pra quem tem orçamento apertado. A lista de lojas com preço de fábrica e o checklist de prioridades fazem seu dinheiro render muito mais do que comprando sem planejamento.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">Por quanto tempo terei acesso ao programa? <span>+</span></div>
-                <div class="faq-answer">O acesso é vitalício! Você pode ver o guia no seu ritmo, quantas vezes precisar, e ainda terá acesso a todas as futuras atualizações do programa e do Painel de Ofertas.</div>
+                <div class="faq-question">Moro de aluguel. Vale a pena? <span>+</span></div>
+                <div class="faq-answer">Muito. O Kit inclui um guia específico pra quem mora de aluguel, com técnicas reversíveis que você leva quando mudar. Nada de reforma ou quebra-quebra.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Como recebo o Kit? <span>+</span></div>
+                <div class="faq-answer">Imediatamente após o pagamento, você recebe acesso à área de membros com todos os materiais: guias, planilhas, listas e o Painel de Ofertas atualizado semanalmente. Funciona no celular, tablet ou computador.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">O acesso expira? <span>+</span></div>
+                <div class="faq-answer">Não. O acesso é vitalício, incluindo todas as atualizações futuras do Kit e do Painel de Ofertas.</div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">O pagamento é seguro? <span>+</span></div>
-                <div class="faq-answer">Sim. O pagamento é processado pela maior plataforma de produtos digitais do Brasil, utilizando os mais altos padrões de segurança. Seus dados estão 100% protegidos.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Esse programa serve para quem mora de aluguel? <span>+</span></div>
-                <div class="faq-answer">Com certeza. O foco do programa é em soluções de mobiliário, decoração e DIY que não exigem reformas estruturais. Tudo o que você aprender poderá ser levado com você em uma futura mudança.</div>
+                <div class="faq-answer">Sim. Processado pela maior plataforma de produtos digitais do Brasil, com criptografia de dados bancários. Aceita Pix, cartão de crédito e boleto.</div>
             </div>
         </div>
     </section>
 
+    <!-- ========== FOOTER CTA ========== -->
     <footer class="footer-cta">
         <div class="container">
-            <h3>Não deixe seu sonho para depois.<br>Lar Confortável e Econômico.</h3>
-            <p style="margin: 15px 0;">Junte-se a centenas de alunos e economize milhares de reais na sua decoração.</p>
-            <a href="#offer" class="btn-cta">GARANTIR MEU ACESSO AGORA</a>
-            <p style="margin-top: 15px; font-size: 12px; color: #999;">Todos os direitos reservados • Meu Lar Econômico</p>
+            <h3>Seu apê não precisa ser caro pra ser bonito.</h3>
+            <p>Garanta o Kit e comece a montar o lar dos seus sonhos hoje.</p>
+            <div style="display:flex;justify-content:center;">
+                <a href="#offer" class="btn-cta">Quero meu Kit por R$19,90</a>
+            </div>
+            <p class="footer-copy">Todos os direitos reservados · Kit Meu Lar Econômico</p>
         </div>
     </footer>
 
+    <!-- ========== STICKY FOOTER (mobile) ========== -->
     <div id="sticky-footer" class="sticky-footer">
-        <a href="https://pay.meulareconomico.digital/checkout/v2/aBkzIAQCjLnlces8iu2F" class="btn-cta">Quero meu acesso por R$ 19,90</a>
+        <a href="https://pay.meulareconomico.digital/checkout/v2/aBkzIAQCjLnlces8iu2F" class="btn-cta">Kit Completo por R$19,90</a>
     </div>
 
     <script>
+        // Date
         const data = new Date();
-        document.getElementById('data-hoje').innerText = `(${data.toLocaleDateString('pt-BR')})`;
+        const hoje = document.getElementById('data-hoje');
+        if (hoje) hoje.innerText = `(${data.toLocaleDateString('pt-BR')})`;
 
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
+        // FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
             item.querySelector('.faq-question').addEventListener('click', () => {
                 const answer = item.querySelector('.faq-answer');
-                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-                item.querySelector('span').innerText = answer.style.display === 'block' ? '-' : '+';
+                const icon = item.querySelector('span');
+                const isOpen = answer.style.display === 'block';
+                answer.style.display = isOpen ? 'none' : 'block';
+                icon.innerText = isOpen ? '+' : '−';
+                icon.style.transform = isOpen ? 'rotate(0)' : 'rotate(180deg)';
             });
         });
 
-        // Sticky Footer Logic
+        // Sticky Footer
         const stickyFooter = document.getElementById('sticky-footer');
         function toggleStickyFooter() {
-            if (window.scrollY > 600) {
+            if (window.scrollY > 500) {
                 stickyFooter.classList.add('visible');
             } else {
                 stickyFooter.classList.remove('visible');
             }
         }
-        window.addEventListener('scroll', toggleStickyFooter);
+        window.addEventListener('scroll', toggleStickyFooter, { passive: true });
         toggleStickyFooter();
     </script>
 
